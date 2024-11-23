@@ -280,7 +280,7 @@ function editTask(task){
 
                     <div class="formgroup">
                     <label for="edit-deadline">Deadline</label>
-                    <input type="date" id="edit-deadline" value="${task.deadline.slice(0, 10)}" required />
+                    <input type="date" id="edit-deadline" value="${task?.deadline?.slice(0, 10)}" required />
                     </div>
                     
                     <div class="formgroup">
