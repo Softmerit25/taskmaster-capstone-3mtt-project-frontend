@@ -858,9 +858,6 @@ const payload = await res.json();
  if(!res.ok || payload?.error){
     throw new Error(payload?.error);
  }
-
- if(payload?.data){
-    user = payload?.data;
     Toastify({
        text: "Logout Successful",
        duration: 3000, 
@@ -874,7 +871,6 @@ const payload = await res.json();
      }).showToast(); 
 
      window.location.href = '/login.html'
-}
 
 } catch (error) {
     console.log('Error during user logout' + error);
@@ -940,9 +936,8 @@ async function checkAuthStatus(){
             credentials: 'include'
         })
     
-        const payload = await res.json();
-
-         user = payload?.data;
+        const userAuth = await res.json();
+         user = userAuth?.data;
         displayUserName.textContent = `${user.fullName.charAt(0).toUpperCase()}`
         const isAuthenticated = Boolean(user);
 
