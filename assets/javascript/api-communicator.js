@@ -34,13 +34,13 @@ try {
 
     let filteredTasksByPages = taskData;
 
-    if (currentPageUrl.includes("/todo.html")) {
+    if (currentPageUrl.includes("/todo")) {
         filteredTasksByPages = taskData.filter(task => task.status === "todo");
-      } else if (currentPageUrl.includes("/completed.html")) {
+      } else if (currentPageUrl.includes("/completed")) {
         filteredTasksByPages = taskData.filter(task => task.status === "completed");
-      } else if (currentPageUrl.includes("/progress.html")) {
+      } else if (currentPageUrl.includes("/progress")) {
         filteredTasksByPages = taskData.filter(task => task.status === "progress");
-      } else if (currentPageUrl.includes("/all-task.html")) {
+      } else if (currentPageUrl.includes("/all-task")) {
         filteredTasksByPages = taskData;
       }
 
