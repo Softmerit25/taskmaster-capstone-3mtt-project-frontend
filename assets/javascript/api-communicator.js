@@ -725,7 +725,7 @@ const registerLoader = document.getElementById('registerloader');
                 className: "toastify"
               }).showToast(); 
 
-
+            
     
         } 
          
@@ -793,6 +793,7 @@ const payload = await res.json();
         className: "toastify"
       }).showToast(); 
 
+  window.location.href = "/";
 
  }
 
@@ -921,11 +922,11 @@ async function registerUser(){
 
 
 
-const displayUserName =  document.getElementById('user-name');
 
 // CHECK USER LOGIN STATUS
 async function checkAuthStatus(){
     
+    const displayUserName =  document.getElementById('user-name');
     const currentWindowPath = window.location.pathname;
     
     const siteLocationPath = ["/", "/all-task.html", "/todo.html", "/progress.html", "/completed.html"];
