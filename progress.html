@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task in Progress | Merit Jacob 3MTT TaskMaster Application Capstone Project: Software Engineering</title>
+    <!-- Site Css file -->
+    <link href="assets/css/styles.css" type="text/css" rel="StyleSheet">
+    <link href="assets/css/modal.css" type="text/css" rel="StyleSheet">
+    <link href="assets/css/task-content.css" type="text/css" rel="StyleSheet">
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=schedule" />
+
+        <!-- Toastify css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body id="body" onload="checkAuthStatus()">
+    <!-- ******************************
+    Header Session
+    ****************************** -->
+    <section>
+        <main class="main-container">
+            <div id="sidebar-overlay" class="sidebar-overlay"></div>
+            <div class="sidebar" id="sidebar">
+                <div class="logo">
+                    <i class="fa-solid fa-clock"></i>
+                    <h1 class="logo-title">TaskMaster.</h1>
+                </div>
+
+
+                <div class="sidebar-nav">
+                    <div class="sidebar-nav-links">
+                        <ul>
+                            <li>
+                                <a href="/" class="menu-link active" ref="follow">
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/all-task.html" class="menu-link" ref="follow">
+                                    Tasks
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/completed.html" class="menu-link" ref="follow">
+                                    Completed
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/progress.html" class="menu-link" ref="follow">
+                                    In Progress
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/todo.html" class="menu-link" ref="follow">
+                                    To Do
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Sidebar Footer Content -->
+                    <div class="footer-content">
+                        <p>
+                            @2024 3MTT Fellow 3MTT TaskMaster Application Capstone Project: Software Engineering by
+                            <span>
+                                Merit Jacob
+                            </span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="main-content">
+                <div class="main-header">
+                    <!-- search input -->
+                    <div class="search-input">
+                        <input id="search-input" type="search" name="search" placeholder="Search a task" />
+                    </div>
+
+
+                    <!-- search mobile icon -->
+                    <div class="search-mobile" id="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+
+
+                    <!-- task filter -->
+                    <select id="filter-task" class="filter-task">
+                    </select>
+
+
+                    <!-- filter mobile icon -->
+
+                    <!-- <div class="filter-mobile" id="filter-task-btn">
+                            <i class="fa-solid fa-filter"></i>
+                         </div>
+                     -->
+
+
+                    <div class="user-profile">
+                        <div class="create-task-btn" id="openModal">
+                            <button>Create Task</button>
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+
+                        <div class="user-icon" id="user-icon-btn">
+                            <span id="user-name">MJ</span>
+                            <!-- user log out menu -->
+                            <div class="user-logout-menu">
+                                <ul>
+                                    <li onclick="handleUserLogOut()">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                        <span>Log out</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- mobile nav -->
+                        <div class="mobile-nav" id="menuButton">
+                            <i class="fa-solid fa-bars"></i>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!-- MAIN SECTION CONTENT -->
+                <div class="main-body">
+
+                    <!-- Task Analysis Board -->
+                    <div class="task-analysis" id="task-analysis">
+                    </div>
+
+
+                    <!-- TASKES SECTION -->
+                    <div class="tasks-container">
+                        <h1>All Task</h1>
+                        <div class="tasks-wrapper" id="task-list-container"></div>
+                    </div>
+                </div>
+
+                <!-- END OF MAIN SECTION CONTENT -->
+
+            </div>
+
+        </main>
+
+
+        <!-- modal section -->
+        <div id="modal" class="modal">
+        </div>
+
+
+
+    </section>
+
+
+    <!-- modal script -->
+    <script src="assets/javascript/api-communicator.js" defer></script>
+    <script src="assets/javascript/modal.js" defer></script>
+    <script src="assets/javascript/sidebar-nav.js" defer></script>
+    <script src="https://kit.fontawesome.com/acd2e0f2a8.js" crossorigin="anonymous"></script>
+
+    <!-- Toastify script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merit Jacob 3MTT TaskMaster Application Capstone Project: Software Engineering</title>
+    <!-- Site Css file -->
+    <link href="assets/css/styles.css" type="text/css" rel="StyleSheet">
+    <link href="assets/css/modal.css" type="text/css" rel="StyleSheet">
+    <link href="assets/css/task-content.css" type="text/css" rel="StyleSheet">
+    <link href="assets/css/login.css" type="text/css" rel="StyleSheet">
+
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=schedule" />
+
+        <!-- Toastify css -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+</head>
+
+<body id="body" onload="checkAuthStatus()">
+    <!-- ******************************
+    Login and Register Page
+    ****************************** -->
+    <section>
+
+        <main class="login-container">
+                <!-- ******************************
+                Register Session
+                ****************************** -->
+                <div class="register-wrapper" id="register">
+
+                <div class="logo login">
+                    <i class="fa-solid fa-clock"></i>
+                    <h1 class="logo-title">TaskMaster.</h1>
+                </div>
+                
+                <div class="login-heading">
+                    <h1>Task Management System</h1>
+                    <p>Easily create, manage and organize your daily tasks. Let's get you onboard.</p>
+                </div>
+
+                <form class="form">
+                    <div class="formgroup">
+                        <label>Full Name:</label>
+                        <input 
+                        type="text"
+                        id="fullname"
+                        placeholder="Type in Full Name..."/>
+                    </div>
+
+                    <div class="formgroup">
+                        <label>Email address:</label>
+                        <input 
+                        type="text"
+                        id="email"
+                        placeholder="Type in email address"/>
+                    </div>
+
+                    <div class="formgroup">
+                        <label>Password:</label>
+                        <input 
+                        type="password"
+                        id="password"
+                        placeholder="Create a password"/>
+                    </div>
+
+                    <button id="register" type="button" onclick="registerUser()">
+                     <i class="fa-solid fa-spinner fa-spin-pulse" id="registerloader"></i>
+                        Create an account
+                    </button>
+                </form>
+
+                <div class="login-text" id="login-text">
+                    <span>Already have an account? <b>Login</b></span>
+                </div>
+
+                </div>
+
+          
+                <!-- ******************************
+                Login Session
+                ****************************** -->
+                <div class="login-wrapper" id="login">
+
+                    <div class="logo login">
+                        <i class="fa-solid fa-clock"></i>
+                        <h1 class="logo-title">TaskMaster.</h1>
+                    </div>
+                    
+                    <div class="login-heading">
+                        <h1>Welcome Back!</h1>
+                        <h3>Task Management System</h3>
+                        <p>Easily create, manage and organize your daily tasks. Let's get you onboard.</p>
+                    </div>
+    
+                    <form class="form">
+                        
+                        <div class="formgroup">
+                            <label for="lemail">Email address:</label>
+                            <input 
+                            type="text"
+                            id="lemail"
+                            placeholder="Type in email address"/>
+                        </div>
+    
+                        <div class="formgroup">
+                            <label for="lpassword">Password:</label>
+                            <input 
+                            type="password"
+                            id="lpassword"
+                            placeholder="Create a password"/>
+                        </div>
+    
+                        <button id="login" type="button" onclick="loginUser()">
+                            <i class="fa-solid fa-spinner fa-spin-pulse" id="loginloader"></i>
+                            Login
+                        </button>
+                    </form>
+    
+                    <div class="login-text" id="register-text">
+                        <span>Don't have an account? <b>Register</b></span>
+                    </div>
+    
+                    </div>
+        </main>
+
+
+        
+    </section>
+
+
+    <!-- modal script -->
+    <script src="assets/javascript/api-communicator.js" defer></script>
+    <script src="https://kit.fontawesome.com/acd2e0f2a8.js" crossorigin="anonymous"></script>
+
+    <!-- Toastify script -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+</body>
+
+</html>

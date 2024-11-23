@@ -1,0 +1,135 @@
+.modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+.modal-content{
+    max-width: 400px;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: #fff;
+    animation: slideDown 0.5s ease-in-out;
+}
+
+/* Slide-down animation */
+@keyframes slideDown {
+    from {
+      transform: translateY(-50%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+.task-title{
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+
+/* form modal css */
+.formgroup{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+
+.formgroup > label{
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+.formgroup > input, textarea, select{
+    width: 100%;
+    outline: none;
+    background: transparent;
+    border: 0.125rem solid #ccc;
+    border-radius: 0.25rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 0.125rem 0.5rem;
+    resize: none;
+}
+
+
+.formgroup > textarea{
+    height: 6.875rem;
+}
+
+.formgroup > select option{
+    font-size: 1.5rem;
+}
+
+.formgroup > input[type="date"] {
+    font-size: 1.2rem;
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    outline: none;
+  }
+
+  .formgroup  > input[type="date"]:focus, input[type="text"]:focus, select[type="option"]:focus,
+  textarea[type="text"]:focus{
+    border-color: var(--bgColor);
+    background-color: #fff;
+  }
+
+  .formgroup  > select:focus{
+    border-color: var(--bgColor);
+    background-color: #fff;
+  }
+
+
+  /* modal btn style */
+  .modal-btn{
+    margin: 2.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+
+  }
+
+.btn{
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: .3s ease;
+    padding: 1rem 1rem;
+    max-width: 130px;
+    display: inline-block;
+    flex: 1;
+}
+
+.btn.cancel{
+    border: 0.125rem solid #ccc;
+}
+.btn.confirm{
+    background: var(--bgColor);
+    color: #fff;
+}

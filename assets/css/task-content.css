@@ -1,0 +1,149 @@
+.task-analysis{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    place-items: center;
+    gap: 1rem;
+}
+
+.analysis-box{
+    padding: 1rem;
+    background: #fff;
+    border-radius: 0.125rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    cursor: pointer;
+}
+
+.analysis-box > h1{
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.task-count{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.task-count > span{
+    font-weight: 500;
+}
+
+.task-count-icon{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bgColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.task-count-icon > i{
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.task-count-icon.complete{
+    background: limegreen;
+}
+
+
+.task-count-icon.progress{
+    background: orange;
+}
+
+.task-count-icon.todo{
+    background: red;
+}
+
+
+/* TASKS DATA STYLES */
+.tasks-container{
+    width: 100%;
+    margin: 3.5rem 0;
+}
+
+.tasks-container > h1{
+    margin: 1rem 0;
+}
+
+.tasks-wrapper{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 1rem;
+}
+
+.tasks-box{
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 0.25rem;
+    padding: 2rem 1.5rem;
+    margin:1rem 0;
+}
+
+.tasks-box > h1{
+    font-size: 1.8rem;
+    margin: 0.625rem 0;
+    color:var(--bgColor);
+}
+
+.tasks-box > hr{
+    background: #ccc;
+    width: 100%;
+    margin: 0.625rem 0;
+}
+
+.tasks-content{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.tasks-option b{
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.tasks-option p{
+    font-size: 1.2rem;
+}
+
+.tasks-btn{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.8rem;
+    padding:1rem 0;
+}
+
+.tasks-btn > i{
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.tasks-btn .fa-trash{
+    color: red;
+}
+
+.tasks-btn .fa-eye{
+    color: darkblue;
+}
+
+.tasks-btn .fa-pen{
+    color: purple;
+}
+
+@media(max-width: 767px){
+     .analysis-box{ 
+        grid-template-columns: auto;
+    }
+    .tasks-wrapper{ 
+        grid-template-columns: auto;
+    }
+}
