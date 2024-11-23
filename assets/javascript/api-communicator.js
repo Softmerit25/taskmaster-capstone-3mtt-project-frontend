@@ -32,23 +32,25 @@ try {
 
     taskData = payload.data?.tasks;
 
+    let filteredTasksByPages = taskData;
 
     if (currentPageUrl.includes("/todo.html")) {
-        taskData = tasks.filter(task => task.status === "todo");
+        filteredTasksByPages = taskData.filter(task => task.status === "todo");
       } else if (currentPageUrl.includes("/completed.html")) {
-        taskData = tasks.filter(task => task.status === "completed");
+        filteredTasksByPages = taskData.filter(task => task.status === "completed");
       } else if (currentPageUrl.includes("/progress.html")) {
-        taskData = tasks.filter(task => task.status === "progress");
+        filteredTasksByPages = taskData.filter(task => task.status === "progress");
       } else if (currentPageUrl.includes("/all-task.html")) {
-        taskData = payload.data?.tasks;
+        filteredTasksByPages = taskData;
       }
 
 
 
     displayTaskCount( payload.data.count);
-    displayTask(taskData);
+
+    displayTask(filteredTasksByPages);
      // Initial call to populate dropdown
-    populateFilterOptions(taskData);
+    populateFilterOptions(filteredTasksByPages);
 
     }
 
