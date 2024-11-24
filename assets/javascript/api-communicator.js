@@ -448,7 +448,7 @@ function populateFilterOptions(filterTaskData) {
   
 
 // Get reference to the dropdown and task container
-filterSelect.addEventListener("change", () => {
+filterSelect && filterSelect.addEventListener("change", () => {
 
     const filterValue = filterSelect.value;
   
@@ -727,8 +727,8 @@ const registerLoader = document.getElementById('registerloader');
                 className: "toastify"
               }).showToast(); 
 
-            
-    
+         window.location.href = '/login.html';
+         
         } 
          
 
