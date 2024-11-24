@@ -10,6 +10,7 @@ let baseUrl = 'http://localhost:5200';
 
 // FUNCTION TO FETCH ALL TASKS
 async function getTask(){
+
 try {
  const res = await fetch(`${baseUrl}/api/v1/task/get-user-task/`,{
      method:'GET',
@@ -73,8 +74,6 @@ Toastify({
  }
 
 
-
- getTask();
 
 
 
@@ -594,96 +593,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
 })
 
-// Registration form inputs 
-let fullName = document.getElementById('fullname');
-let email = document.getElementById('email');
-let password = document.getElementById('password');
-
-
-
-// validate User Registration Inputs
-function validateRegisterInputs(){
-    let emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    
-    if(!fullName.value.trim()){
-        Toastify({
-            text: "Fullname is required",
-            duration: 3000, 
-            close: true, 
-            gravity: "top", 
-            position: "right", 
-            styles:{
-                background: "red", 
-            },
-            className: "toastify"
-          }).showToast(); 
-        return false;
-    }
-
-    if(!email.value.trim()){
-        Toastify({
-            text: "Email is required",
-            duration: 3000, 
-            close: true, 
-            gravity: "top", 
-            position: "right", 
-            styles:{
-                background: "red", 
-            },
-            className: "toastify"
-          }).showToast(); 
-        return false;
-    }
-
-    if(email.value.trim() && !email.value.includes('@') || emailRegex.test(email)){
-        Toastify({
-            text: "Enter a valid email address!",
-            duration: 3000, 
-            close: true, 
-            gravity: "top", 
-            position: "right", 
-            styles:{
-                background: "red", 
-            },
-            className: "toastify"
-          }).showToast(); 
-        return false;
-    }
-
-    if(!password.value.trim()){
-        Toastify({
-            text: "Password is required",
-            duration: 3000, 
-            close: true, 
-            gravity: "top", 
-            position: "right", 
-            styles:{
-                background: "red", 
-            },
-            className: "toastify"
-          }).showToast(); 
-        return false;
-    }
-
-    if(password.value.trim().lenth <= 4){
-        Toastify({
-            text: "Password characters must be of length 6 or greater!",
-            duration: 3000, 
-            close: true, 
-            gravity: "top", 
-            position: "right", 
-            styles:{
-                background: "red", 
-            },
-            className: "toastify"
-          }).showToast(); 
-        return false;
-    }
-
-    return true;
-}
-
-
 
 
 
@@ -753,6 +662,29 @@ const registerLoader = document.getElementById('registerloader');
 }
 
 
+
+
+// register
+async function registerUser(){
+
+    // Registration form inputs 
+const fullName = document.querySelector('#fullname');
+const email = document.getElementById('email');
+const password = document.getElementById('password');
+
+     const registerData = {
+        fullName: fullName.value,
+        email: email.value,
+        password: password.value
+     }
+
+    await handleUserRegistration(registerData);
+    
+    fullName.value = '',
+    email.value = '',
+    password.value = ''
+
+}
 
 
 // API CALL FOR USER LOGIN
@@ -898,26 +830,6 @@ const payload = await res.json();
 
 
 
-// register
-async function registerUser(){
-    const validate =  validateRegisterInputs();
-
-        if(!validate) return;
-
-     const registerData = {
-        fullName: fullName.value,
-        email: email.value,
-        password: password.value
-     }
-
-    await handleUserRegistration(registerData);
-    
-    fullName.value = '',
-    email.value = '',
-    password.value = ''
-}
-
-
 
 
 
@@ -931,7 +843,7 @@ async function checkAuthStatus(){
     const displayUserName =  document.getElementById('user-name');
     const currentWindowPath = window.location.pathname;
     
-    const siteLocationPath = ["/", "/all-task.html", "/todo.html", "/progress.html", "/completed.html"];
+    const siteLocationPath = ["/", "/all-task", "/todo", "/progress", "/completed"];
     try {
 
         const res = await fetch(`${baseUrl}/api/v1/auth/auth-status/`,{
@@ -941,7 +853,14 @@ async function checkAuthStatus(){
     
         const userAuth = await res.json();
          user = userAuth?.data;
-        displayUserName.textContent = `${user.fullName.charAt(0).toUpperCase()}`
+         if(displayUserName){
+              displayUserName.textContent = `${user?.fullName.charAt(0).toUpperCase()}`
+         }
+
+         if(user){
+            getTask(); 
+         }
+
         const isAuthenticated = Boolean(user);
 
         // Redirect based on authentication status
