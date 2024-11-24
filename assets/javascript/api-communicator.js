@@ -1,7 +1,7 @@
 // GLOBAL STATE FOR AUTHENTICATED USER AND TASK DATA PAYLOAD
 let user = null;
 let taskData = [];
-let baseUrl = 'http://localhost:5200';
+let baseUrl = 'https://3mtttrainingcapstonetaskmasterprojectapi-upvwqo70.b4a.run';
 
 
 
